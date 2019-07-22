@@ -32,19 +32,21 @@ public class BookShop{
         for (int i=0;i<=16;i++){
             System.out.println((i+1)+"    "+itemAvailable[i].itemName+ "    "+itemAvailable[i].mrp + '\n') ;
         }
-        System.out.println("Select from the above product and write its quantity[-1 to exit]:(ex- 3 6 , this means you want the 3rd product and the quantity should be 6. )");
+        System.out.println("Select from the above product and write its quantity[-1 to exit]:\n(ex- 3 6 , this means you want the 3rd product and the quantity should be 6. )");
         
-        int take1,take2;
+        int take1;
+        int take2;
         int j = 0;
         Scanner sc = new Scanner(System.in);
         Cart c1 = new Cart();
-        take1 = sc.nextInt(); //product name
+        take1 = sc.nextInt(); //product number
         while(take1 != -1){
             take2 = sc.nextInt(); //quantity
             c1.updateCart(itemAvailable[take1-1], take2);
             take1 = sc.nextInt();
             
         }
+       
         sc.nextLine();
         System.out.println("type your name to generate the bill :");
         String s = sc.nextLine();
@@ -52,7 +54,7 @@ public class BookShop{
         cn.setName(s);
         
         c1.finalizeCart(cn.getName());
-        System.out.println("-------------------------------------------------");
+        System.out.println("---Your name is--"+cn.getName());
         // System.out.println("Checkout? Enter your Name:");
 
 
